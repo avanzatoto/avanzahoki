@@ -114,8 +114,8 @@ body::before{
 .btn:hover{
     transform:translateY(-3px) scale(1.02);
     box-shadow:
-    0 0 20px rgba(255,215,0,.35),
-    0 0 40px rgba(255,215,0,.20);
+    0 0 10px rgba(255,255,255,.6),
+    0 0 20px rgba(255,215,0,.3);
 }
 
 .login{
@@ -188,13 +188,18 @@ body::before{
 .rocket-launch{
     position:fixed;
     left:50%;
-    bottom:-250px;
+    bottom:0;
     width:70px;
     height:180px;
     transform:translateX(-50%);
     z-index:999999;
     pointer-events:none;
-    animation:rocketFly 1.6s ease-in forwards;
+
+    will-change:transform;
+    backface-visibility:hidden;
+    transform-style:preserve-3d;
+
+    animation:rocketFly 1s linear forwards;
 }
 
 .rocket-body{
@@ -241,7 +246,7 @@ body::before{
         #ff5722,
         transparent
     );
-    filter:blur(8px);
+    filter:blur(3px);
     animation:fireMove .08s infinite alternate;
 }
 
@@ -255,16 +260,16 @@ body::before{
 }
 
 @keyframes rocketFly{
-    0%{
-        bottom:-250px;
+    from{
+        transform:
+        translateX(-50%)
+        translateY(0);
     }
 
-    15%{
-        bottom:50px;
-    }
-
-    100%{
-        bottom:130%;
+    to{
+        transform:
+        translateX(-50%)
+        translateY(-140vh);
     }
 }
 
@@ -290,9 +295,7 @@ body::before{
 }
 
 body.launching{
-    animation:
-    shakeLaunch .12s infinite,
-    zoomLaunch 1.6s forwards;
+    animation:zoomLaunch .8s forwards;
 }
 
 @keyframes shakeLaunch{
