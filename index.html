@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AVANZATOTO</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:url('background.jpg') center center/cover no-repeat;
+overflow:hidden;
+position:relative;
+}
+
+body::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+135deg,
+rgba(0,0,0,.75),
+rgba(0,0,0,.55)
+);
+backdrop-filter:blur(4px);
+}
+
+.container{
+position:relative;
+z-index:10;
+width:90%;
+max-width:650px;
+padding:40px;
+border-radius:25px;
+
+.container{
+    background:transparent;
+    backdrop-filter:none;
+    box-shadow:none;
+    border:none;
+}
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 0 50px rgba(255,215,0,.15),
+0 0 120px rgba(255,140,0,.08);
+
+text-align:center;
+}
+
+.logo{
+font-size:60px;
+font-weight:900;
+color:#ffd700;
+
+text-shadow:
+0 0 10px #ffd700,
+0 0 20px #ffae00,
+0 0 40px #ff7b00;
+
+margin-bottom:10px;
+letter-spacing:3px;
+}
+
+.subtitle{
+color:#ddd;
+font-size:15px;
+margin-bottom:35px;
+}
+
+.info{
+background:rgba(255,255,255,.06);
+border-radius:15px;
+padding:15px;
+margin-bottom:30px;
+color:#fff;
+line-height:1.6;
+font-size:14px;
+}
+
+.menu{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.btn{
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:18px;
+border-radius:15px;
+
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+
+transition:.3s;
+}
+
+.login{
+background:linear-gradient(135deg,#ff9800,#ff5722);
+color:#fff;
+}
+
+.daftar{
+background:linear-gradient(135deg,#00c853,#00e676);
+color:#fff;
+}
+
+.promosi{
+background:linear-gradient(135deg,#ffd600,#ffab00);
+color:#111;
+}
+
+.btn:hover{
+transform:translateY(-4px) scale(1.02);
+
+box-shadow:
+0 0 20px rgba(255,215,0,.4),
+0 0 40px rgba(255,215,0,.25);
+}
+
+.footer{
+margin-top:25px;
+font-size:12px;
+color:#bbb;
+}
+
+.particle{
+position:absolute;
+width:4px;
+height:4px;
+background:#ffd700;
+border-radius:50%;
+opacity:.6;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh);
+}
+to{
+transform:translateY(-120px);
+}
+}
+
+.gold-particle{
+    position:fixed;
+    top:-20px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:2;
+
+    background:radial-gradient(
+        circle,
+        #fff9d6 0%,
+        #ffd700 45%,
+        #ffb300 100%
+    );
+
+    box-shadow:
+        0 0 6px #ffd700,
+        0 0 15px #ffae00,
+        0 0 25px rgba(255,215,0,.7);
+
+    animation:goldFall linear forwards;
+}
+
+@keyframes goldFall{
+    0%{
+        transform:translateY(-20px) translateX(0);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) translateX(60px);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="particle" style="left:10%;animation-delay:0s"></div>
+<div class="particle" style="left:25%;animation-delay:2s"></div>
+<div class="particle" style="left:40%;animation-delay:4s"></div>
+<div class="particle" style="left:60%;animation-delay:1s"></div>
+<div class="particle" style="left:80%;animation-delay:3s"></div>
+
+<div class="container">
+
+<div class="logo">AVANZATOTO</div>
+
+<div class="subtitle">
+Situs Game Online Resmi Terbaik Dan Terpercaya
+</div>
+
+<div class="info">
+✨ Tampilan Premium<br>
+⚡ Akses Cepat & Responsif<br>
+📱 Optimal untuk Mobile & Desktop
+</div>
+
+<div class="menu">
+
+<a class="btn login"
+href="https://vxn5gdwdjc.avanza189.com/login">
+LOGIN
+</a>
+
+<a class="btn daftar"
+href="https://vxn5gdwdjc.avanza189.com/register">
+DAFTAR
+</a>
+
+<a class="btn promosi"
+href="https://vxn5gdwdjc.avanza189.com/promotion">
+PROMOSI & BONUS
+</a>
+
+</div>
+
+<div class="footer">
+© 2026 AVANZATOTO
+</div>
+
+</div>
+
+<script>
+
+function createGoldParticle(){
+
+    const particle = document.createElement("div");
+    particle.className = "gold-particle";
+
+    const size = Math.random() * 7 + 2;
+
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+
+    particle.style.left =
+        Math.random() * window.innerWidth + "px";
+
+    particle.style.animationDuration =
+        (Math.random() * 5 + 5) + "s";
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, 12000);
+}
+
+setInterval(createGoldParticle, 120);
+
+</script>
+
+</body>
+</html>
