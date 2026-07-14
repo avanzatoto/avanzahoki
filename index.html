@@ -2,424 +2,549 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AVANZATOTO</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AVANZATOTO - Ultra Premium Gaming Interface</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* --- BASE & ULTRA PREMIUM UTILITIES --- */
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:url('background.jpg') center center/cover no-repeat;
-    overflow:hidden;
-    position:relative;
+body {
+    color: #f0f3f8;
+    overflow-x: hidden;
+    
+    /* 1. KITA BUAT LAPISAN HITAMNYA JAUH LEBIH TRANSPARAN (DARI 0.85 JADI 0.35) AGAR BACKGROUND SANGAT JELAS */
+    background: linear-gradient(180deg, rgba(2, 6, 16, 0.35) 0%, rgba(1, 3, 9, 0.55) 100%), url('background.jpg');
+    
+    /* 2. TETAP MENGIKUTI UKURAN POPUP (MEMBANYAK SAAT MENGECIL) */
+    background-repeat: repeat; 
+    
+    /* 3. UKURAN BACKGROUND DIPERBESAR SEPERTI REQUEST (DARI 140px MENJADI 320px AGAR TIDAK KEKECILAN) */
+    background-size: 320px auto; 
+    
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #010309;
 }
 
-body::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        135deg,
-        rgba(0,0,0,.75),
-        rgba(0,0,0,.55)
-    );
-    backdrop-filter:blur(4px);
+.container {
+    max-width: 1340px;
+    margin: auto;
+    padding: 50px 24px;
+    position: relative;
+    z-index: 2;
 }
 
-#particles{
-    position:absolute;
-    inset:0;
-    z-index:15;
-    overflow:hidden;
-    pointer-events:none;
-    border-radius:30px;
+/* --- MASTER HEADER & METALLIC ANIMATION --- */
+.logo {
+    text-align: center;
+    padding: 10px 0 50px;
+    position: relative;
 }
 
-.container{
-    position:relative;
-    z-index:10;
-    width:min(90%,650px);
-    overflow:hidden;
-    padding:40px;
-    border-radius:30px;
-    text-align:center;
-    background:rgba(0,0,0,.18);
-    backdrop-filter:blur(5px);
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:
-    0 0 40px rgba(255,215,0,.10),
-    0 0 80px rgba(255,140,0,.08);
+.crown-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 8px;
+    animation: float 4s ease-in-out infinite;
 }
 
-.logo{
-    font-size:clamp(32px,9vw,60px);
-    font-weight:900;
-    color:#ffd700;
-    text-shadow:
-    0 0 10px #ffd700,
-    0 0 20px #ffae00,
-    0 0 40px #ff7b00;
-    line-height:1.1;
-    letter-spacing:2px;
-    margin-bottom:15px;
+.crown-wrapper i {
+    font-size: 54px;
+    background: linear-gradient(135deg, #ffffff 0%, #e2e5ee 40%, #8a90a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
 }
 
-.subtitle{
-    color:#e5e5e5;
-    font-size:15px;
-    line-height:1.5;
-    margin-bottom:30px;
+.avanza-title {
+    font-family: 'Marcellus', serif;
+    font-size: 92px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    line-height: 1;
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+    
+    background: linear-gradient(90deg, #b98e2f, #fcf3c3, #d4a943, #ffffff, #d4a943, #fcf3c3, #b98e2f);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.95));
+    animation: shine 6s linear infinite;
 }
 
-.info{
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:18px;
-    padding:18px;
-    margin-bottom:30px;
-    color:#fff;
-    font-size:14px;
-    line-height:1.8;
+.tagline {
+    font-size: 15px;
+    margin-top: 20px;
+    font-weight: 600;
+    letter-spacing: 7px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    position: relative;
 }
 
-.menu{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
+.tagline::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e6b642, transparent);
+    margin: 12px auto 0;
 }
 
-.btn{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:18px;
-    border-radius:16px;
-    font-size:20px;
-    font-weight:700;
-    text-decoration:none;
-    transition:.3s;
+/* --- LUXURY NAV BAR (BAROSMORPHISM) --- */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
 }
 
-.btn:hover{
-    transform:translateY(-3px) scale(1.02);
-    box-shadow:
-    0 0 10px rgba(255,255,255,.6),
-    0 0 20px rgba(255,215,0,.3);
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 20px 26px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.05);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.login{
-    background:linear-gradient(135deg,#ff9800,#ff5722);
-    color:#fff;
+.menu-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-.daftar{
-    background:linear-gradient(135deg,#00c853,#00e676);
-    color:#fff;
+.menu-info i {
+    font-size: 20px;
+    color: #e6b642;
+    background: linear-gradient(135deg, #fff099, #e6b642);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.promosi{
-    background:linear-gradient(135deg,#ffd600,#ffab00);
-    color:#111;
+.menu-title {
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 1px;
 }
 
-/* TAMBAHAN MENU BARU */
-.hubungi{
-    background:linear-gradient(135deg,#2196f3,#00bcd4);
-    color:#fff;
+.explore-btn {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
 }
 
-.footer{
-    margin-top:25px;
-    color:#ccc;
-    font-size:12px;
+.menu-item:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(230, 182, 66, 0.4);
+    box-shadow: 0 15px 35px rgba(230, 182, 66, 0.1);
 }
 
-/* BULIR EMAS */
-.gold-particle{
-    position:absolute;
-    top:-20px;
-    border-radius:50%;
-    pointer-events:none;
-
-    background:radial-gradient(
-        circle,
-        #fff,
-        #ffe082,
-        #ffca28,
-        #ff9800
-    );
-
-    box-shadow:
-    0 0 8px #ffd700,
-    0 0 20px #ffca28,
-    0 0 35px rgba(255,215,0,.9);
-
-    animation:goldFall linear forwards;
+.menu-item:hover .explore-btn {
+    color: #1a1100;
+    background: #e6b642;
+    border-color: #e6b642;
+    box-shadow: 0 0 15px rgba(230, 182, 66, 0.5);
 }
 
-@keyframes goldFall{
-    0%{transform:translateY(-20px);opacity:0;}
-    10%{opacity:1;}
-    100%{transform:translateY(110vh) translateX(60px);opacity:0;}
+/* --- THE NEW 3D SHOWCASE CARDS --- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
 }
 
-@media(max-width:480px){
-    .container{width:92%;padding:25px 20px;}
-    .logo{font-size:clamp(28px,10vw,42px);}
-    .subtitle{font-size:13px;}
-    .info{font-size:13px;padding:14px;}
-    .btn{padding:16px;font-size:17px;}
-    .footer{font-size:11px;}
+.card {
+    padding: 45px 30px 40px;
+    border-radius: 24px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(9, 17, 34, 0.85) 0%, rgba(3, 7, 16, 0.98) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* ===== ROCKET PRO EFFECT ===== */
-
-.rocket-launch{
-    position:fixed;
-    left:50%;
-    bottom:0;
-    width:70px;
-    height:180px;
-    transform:translateX(-50%);
-    z-index:999999;
-    pointer-events:none;
-
-    will-change:transform;
-    backface-visibility:hidden;
-    transform-style:preserve-3d;
-
-    animation:rocketFly 1s linear forwards;
+/* Glass glare overlay effect */
+.card::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
 }
 
-.rocket-body{
-    position:absolute;
-    width:70px;
-    height:120px;
-    background:linear-gradient(
-        to bottom,
-        #ffffff,
-        #dcdcdc,
-        #bfbfbf
-    );
-    border-radius:40px 40px 15px 15px;
-    box-shadow:
-    0 0 20px rgba(255,255,255,.8),
-    0 0 50px rgba(255,215,0,.4);
+.card:hover::after {
+    left: 100%;
 }
 
-.rocket-window{
-    position:absolute;
-    top:25px;
-    left:50%;
-    transform:translateX(-50%);
-    width:22px;
-    height:22px;
-    border-radius:50%;
-    background:#4fc3f7;
-    border:3px solid #fff;
+.card-icon-wrapper {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: all 0.4s ease;
 }
 
-.rocket-fire{
-    position:absolute;
-    bottom:-75px;
-    left:50%;
-    transform:translateX(-50%);
-    width:26px;
-    height:90px;
-    border-radius:50%;
-    background:linear-gradient(
-        to bottom,
-        #ffffff,
-        #ffd54f,
-        #ff9800,
-        #ff5722,
-        transparent
-    );
-    filter:blur(3px);
-    animation:fireMove .08s infinite alternate;
+.card i {
+    font-size: 36px;
 }
 
-@keyframes fireMove{
-    from{
-        height:80px;
+.card h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #8f9bb3;
+    margin-bottom: 35px;
+    min-height: 68px;
+}
+
+.card-btn {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    border-radius: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* BRAND COLOR CHROMATICS ROW */
+/* BLUE CONCEPT */
+.blue { border-color: rgba(0, 162, 255, 0.15); }
+.blue i, .blue h2 { color: #33b6ff; filter: drop-shadow(0 0 10px rgba(0, 162, 255, 0.3)); }
+.blue .card-icon-wrapper { border-color: rgba(0, 162, 255, 0.2); background: rgba(0, 162, 255, 0.02); }
+.blue .card-btn { background: linear-gradient(135deg, #0052d4, #4364f7); box-shadow: 0 6px 20px rgba(67, 100, 247, 0.35); }
+.blue:hover { border-color: rgba(0, 162, 255, 0.5); box-shadow: 0 25px 50px rgba(0, 162, 255, 0.2); }
+.blue .card-btn:hover { box-shadow: 0 8px 25px rgba(67, 100, 247, 0.6); filter: brightness(1.15); }
+
+/* PURPLE CONCEPT */
+.purple { border-color: rgba(176, 0, 255, 0.15); }
+.purple i, .purple h2 { color: #d26dff; filter: drop-shadow(0 0 10px rgba(176, 0, 255, 0.3)); }
+.purple .card-icon-wrapper { border-color: rgba(176, 0, 255, 0.2); background: rgba(176, 0, 255, 0.02); }
+.purple .card-btn { background: linear-gradient(135deg, #5110bc, #892cdc); box-shadow: 0 6px 20px rgba(137, 44, 220, 0.35); }
+.purple:hover { border-color: rgba(176, 0, 255, 0.5); box-shadow: 0 25px 50px rgba(176, 0, 255, 0.2); }
+.purple .card-btn:hover { box-shadow: 0 8px 25px rgba(137, 44, 220, 0.6); filter: brightness(1.15); }
+
+/* GOLD CONCEPT */
+.gold { border-color: rgba(255, 179, 0, 0.15); }
+.gold i, .gold h2 { color: #ffd43b; filter: drop-shadow(0 0 10px rgba(255, 179, 0, 0.3)); }
+.gold .card-icon-wrapper { border-color: rgba(255, 179, 0, 0.2); background: rgba(255, 179, 0, 0.02); }
+.gold .card-btn { background: linear-gradient(135deg, #b8860b, #e6b642); color: #160e00; box-shadow: 0 6px 20px rgba(230, 182, 66, 0.35); }
+.gold:hover { border-color: rgba(255, 179, 0, 0.5); box-shadow: 0 25px 50px rgba(255, 179, 0, 0.2); }
+.gold .card-btn:hover { box-shadow: 0 8px 25px rgba(230, 182, 66, 0.6); filter: brightness(1.15); }
+
+/* GREEN CONCEPT */
+.green { border-color: rgba(0, 255, 85, 0.15); }
+.green i, .green h2 { color: #4dff8d; filter: drop-shadow(0 0 10px rgba(0, 255, 85, 0.3)); }
+.green .card-icon-wrapper { border-color: rgba(0, 255, 85, 0.2); background: rgba(0, 255, 85, 0.02); }
+.green .card-btn { background: linear-gradient(135deg, #007029, #00b344); box-shadow: 0 6px 20px rgba(0, 179, 68, 0.35); }
+.green:hover { border-color: rgba(0, 255, 85, 0.5); box-shadow: 0 25px 50px rgba(0, 255, 85, 0.2); }
+.green .card-btn:hover { box-shadow: 0 8px 25px rgba(0, 179, 68, 0.6); filter: brightness(1.15); }
+
+/* --- TRUST MATRIX FOOTER BAR --- */
+.features {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 20px;
+    background: rgba(4, 9, 20, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s;
+}
+
+.feature i {
+    font-size: 24px;
+    color: #e6b642;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #fff099, #e6b642);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.feature-text h3 {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.feature-text p {
+    font-size: 12px;
+    color: #6c7a96;
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+.feature:hover {
+    border-color: rgba(255,255,255,0.1);
+    background: rgba(4, 9, 20, 0.8);
+    transform: translateY(-2px);
+}
+
+/* --- ANIMATION KEYFRAMES --- */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes shine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* --- ADAPTIVE RESPONSIVE FRAMEWORK --- */
+@media(max-width: 1200px) {
+    .menu, .cards {
+        grid-template-columns: repeat(2, 1fr);
     }
-    to{
-        height:110px;
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .avanza-title {
+        font-size: 74px;
     }
 }
 
-@keyframes rocketFly{
-    from{
-        transform:
-        translateX(-50%)
-        translateY(0);
+@media(max-width: 768px) {
+    .avanza-title {
+        font-size: 56px;
+        letter-spacing: 4px;
     }
-
-    to{
-        transform:
-        translateX(-50%)
-        translateY(-140vh);
+    .tagline {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+    .menu {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .features {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .card p {
+        min-height: auto;
     }
 }
 
-.flash-launch{
-    position:fixed;
-    inset:0;
-    background:radial-gradient(
-        circle,
-        rgba(255,215,0,.8),
-        rgba(255,140,0,.4),
-        transparent 70%
-    );
-    opacity:0;
-    pointer-events:none;
-    z-index:999998;
-    animation:flashEffect 1.6s forwards;
-}
-
-@keyframes flashEffect{
-    0%{opacity:0;}
-    15%{opacity:1;}
-    100%{opacity:0;}
-}
-
-body.launching{
-    animation:zoomLaunch .8s forwards;
-}
-
-@keyframes shakeLaunch{
-    0%{transform:translate(0,0);}
-    25%{transform:translate(2px,-2px);}
-    50%{transform:translate(-2px,2px);}
-    75%{transform:translate(2px,2px);}
-    100%{transform:translate(0,0);}
-}
-
-@keyframes zoomLaunch{
-    from{
-        transform:scale(1);
+@media(max-width: 480px) {
+    .avanza-title {
+        font-size: 42px;
+        letter-spacing: 2px;
     }
-
-    to{
-        transform:scale(1.12);
+    .container {
+        padding: 30px 16px;
     }
 }
 </style>
 </head>
-
 <body>
 
 <div class="container">
-    
-<div id="particles"></div>
 
-    <div class="logo">AVANZATOTO</div>
+    <header class="logo">
+        <div class="crown-wrapper">
+            <i class="fa-solid fa-crown"></i>
+        </div>
+        <h1 class="avanza-title">AVANZATOTO</h1>
+        <p class="tagline">Play Smart, Win Big, Every Time</p>
+    </header>
 
-    <div class="subtitle">
-        Situs Game Online Resmi Terbaik Dan Terpercaya
-    </div>
-
-    <div class="info">
-        ✨ Tampilan Premium<br>
-        ⚡ Akses Cepat & Responsif<br>
-        📱 Optimal untuk Mobile & Desktop
-    </div>
-
-    <div class="menu">
-
-        <a class="btn login"
-           href="#"
-           onclick="launchRocket('https://vxn5gdwdjc.avanza189.com/login');return false;">
-           LOGIN
+    <nav class="menu">
+        <a href="https://vxn5gdwdjc.avanza189.com/login" class="menu-item">
+            <div class="menu-info">
+                <i class="fa-solid fa-user"></i>
+                <div class="menu-text">
+                    <span class="menu-title">LOGIN</span>
+                </div>
+            </div>
+            <span class="explore-btn">Explore</span>
         </a>
 
-        <a class="btn daftar"
-           href="#"
-           onclick="launchRocket('https://vxn5gdwdjc.avanza189.com/register');return false;">
-            DAFTAR
+        <a href="https://vxn5gdwdjc.avanza189.com/register" class="menu-item">
+            <div class="menu-info">
+                <i class="fa-solid fa-user-plus"></i>
+                <div class="menu-text">
+                    <span class="menu-title">DAFTAR</span>
+                </div>
+            </div>
+            <span class="explore-btn">Explore</span>
         </a>
 
-        <a class="btn promosi"
-           href="#"
-           onclick="launchRocket('https://vxn5gdwdjc.avanza189.com/promotion'); return false;">
-           PROMOSI & BONUS
+        <a href="https://vxn5gdwdjc.avanza189.com/promotion" class="menu-item">
+            <div class="menu-info">
+                <i class="fa-solid fa-gift"></i>
+                <div class="menu-text">
+                    <span class="menu-title">PROMOSI</span>
+                </div>
+            </div>
+            <span class="explore-btn">Explore</span>
         </a>
 
-        <a class="btn hubungi"
-           href="#"
-           onclick="launchRocket('https://vxn5gdwdjc.avanza189.com/support'); return false;">
-           HUBUNGI KAMI
+        <a href="https://vxn5gdwdjc.avanza189.com/support" class="menu-item">
+            <div class="menu-info">
+                <i class="fa-solid fa-headset"></i>
+                <div class="menu-text">
+                    <span class="menu-title">SUPPORT</span>
+                </div>
+            </div>
+            <span class="explore-btn">Explore</span>
         </a>
+    </nav>
 
-    </div>
+    <main class="cards">
+        <div class="card blue">
+            <div class="card-icon-wrapper">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h2>LOGIN</h2>
+            <p>Masuk ke akun Anda dan nikmati semua sistem interface game terbaik kami.</p>
+            <a href="https://vxn5gdwdjc.avanza189.com/login" class="card-btn">Enter Now</a>
+        </div>
 
-    <div class="footer">
-        © 2026 AVANZATOTO
-    </div>
+        <div class="card purple">
+            <div class="card-icon-wrapper">
+                <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+            <h2>DAFTAR</h2>
+            <p>Buat akun baru premium Anda dengan proses kilat, mudah, dan terenkripsi aman.</p>
+            <a href="https://vxn5gdwdjc.avanza189.com/register" class="card-btn">Register Today</a>
+        </div>
+
+        <div class="card gold">
+            <div class="card-icon-wrapper">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+            <h2>PROMO & BONUS</h2>
+            <p>Dapatkan berbagai promosi menarik dan tambahan bonus eksklusif setiap harinya.</p>
+            <a href="https://vxn5gdwdjc.avanza189.com/promotion" class="card-btn">Claim Bonus</a>
+        </div>
+
+        <div class="card green">
+            <div class="card-icon-wrapper">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <h2>HUBUNGI KAMI</h2>
+            <p>Tim profesional VIP support kami siap melayani Anda selama 24 jam nonstop.</p>
+            <a href="https://vxn5gdwdjc.avanza189.com/support" class="card-btn">Connect</a>
+        </div>
+    </main>
+
+    <footer class="features">
+        <div class="feature">
+            <i class="fa-solid fa-shield"></i>
+            <div class="feature-text">
+                <h3>AMAN</h3>
+                <p>Proteksi data enkripsi</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <i class="fa-solid fa-bolt"></i>
+            <div class="feature-text">
+                <h3>CEPAT</h3>
+                <p>Proses WD & Depo Instan</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <i class="fa-solid fa-clock"></i>
+            <div class="feature-text">
+                <h3>24 JAM</h3>
+                <p>Layanan operasional VIP</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <i class="fa-solid fa-trophy"></i>
+            <div class="feature-text">
+                <h3>WIN BIG</h3>
+                <p>Rasio peluang tinggi</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <i class="fa-solid fa-lock"></i>
+            <div class="feature-text">
+                <h3>FAIR PLAY</h3>
+                <p>Sistem game transparan</p>
+            </div>
+        </div>
+    </footer>
 
 </div>
-
-<script>
-function createGoldParticle(){
-    const particle = document.createElement("div");
-    particle.className = "gold-particle";
-
-    const size = Math.random() * 8 + 2;
-    particle.style.width = size + "px";
-    particle.style.height = size + "px";
-
-const container = document.querySelector(".container");
-
-particle.style.left =
-Math.random() * container.offsetWidth + "px";
-    particle.style.animationDuration = (Math.random() * 5 + 5) + "s";
-
-    document.getElementById("particles").appendChild(particle);
-
-    setTimeout(()=> particle.remove(),12000);
-}
-
-setInterval(createGoldParticle,120);
-</script>
-
-<script>
-
-function launchRocket(url){
-
-    document.body.classList.add("launching");
-
-    const flash = document.createElement("div");
-    flash.className = "flash-launch";
-    document.body.appendChild(flash);
-
-    const rocket = document.createElement("div");
-    rocket.className = "rocket-launch";
-   rocket.innerHTML = `
-<div class="rocket-body">
-<div class="rocket-window"></div>
-</div>
-<div class="rocket-fire"></div>
-`;
-    document.body.appendChild(rocket);
-
-    setTimeout(()=>{
-        window.location.href = url;
-    },1500);
-
-}
-
-</script>
 
 </body>
 </html>
