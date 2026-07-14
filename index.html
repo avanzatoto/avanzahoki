@@ -5,8 +5,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>AVANZATOTO - Ultra Premium Gaming Interface</title>
 
+<!-- ================================================================= -->
+<!-- KODE PREVIEW LINK (OPEN GRAPH) KHUSUS GITHUB PAGES ANDA -->
+<!-- ================================================================= -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://csavanza.github.io/toto/">
+<meta property="og:title" content="AVANZATOTO">
+<meta property="og:description" content="SELAMAT DATANG DAN SELAMAT MENIKMATI FROM AVANZATOTO">
+<meta property="og:image" content="https://csavanza.github.io/toto/preview.jpg">
+
+<!-- Optimasi Tampilan Ukuran Besar untuk Twitter / Telegram Preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AVANZATOTO">
+<meta name="twitter:description" content="SELAMAT DATANG DAN SELAMAT MENIKMATI FROM AVANZATOTO">
+<meta name="twitter:image" content="https://csavanza.github.io/toto/preview.jpg">
+<!-- ================================================================= -->
+
+<!-- KODE FAVICON LOGO KECIL DI TAB BROWSER -->
 <link rel="icon" type="image/png" href="logo.png">
 
+<!-- FONTS & ICON EXTERNAL -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +37,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    -webkit-tap-highlight-color: transparent; /* Menghapus kotak biru bawaan browser HP saat menu ditekan */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -29,7 +47,7 @@ body {
     min-height: 100vh;
 }
 
-/* TRIK HP MOBILE: Mengunci mati gambar latar belakang agar diam sempurna & stabil saat di-scroll */
+/* TRIK HP MOBILE: Mengunci mati gambar latar belakang agar diam sempurna & stabil */
 body::before {
     content: "";
     position: fixed;
@@ -37,7 +55,6 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradasi dibuat sangat tipis transparan (0.15 & 0.4) agar gambar background.jpg terlihat jelas menembus menu */
     background: linear-gradient(180deg, rgba(2, 6, 16, 0.15) 0%, rgba(1, 3, 9, 0.4) 100%), url('background.jpg');
     background-repeat: repeat; 
     background-size: 340px auto; 
@@ -142,7 +159,6 @@ body::before {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-/* Aksen teks emas berkilau khusus kata BOSKU */
 .marquee-content span {
     background: linear-gradient(135deg, #fff099, #e6b642);
     -webkit-background-clip: text;
@@ -150,7 +166,7 @@ body::before {
     font-weight: 800;
 }
 
-/* --- LUXURY NAV BAR (BAROSMORPHISM) --- */
+/* --- LUXURY NAV BAR --- */
 .menu {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -165,12 +181,9 @@ body::before {
     text-decoration: none;
     color: #ffffff;
     padding: 20px 26px;
-    
-    /* DIBUAT ULTRA TRANSPARAN AGAR BACKGROUND DI BELAKANGNYA TEMBUS */
     background: rgba(255, 255, 255, 0.01);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.02);
@@ -210,7 +223,6 @@ body::before {
     transition: all 0.2s ease;
 }
 
-/* Hover Efek PC/Desktop */
 .menu-item:hover {
     transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.04);
@@ -224,14 +236,13 @@ body::before {
     box-shadow: 0 0 15px rgba(230, 182, 66, 0.5);
 }
 
-/* RESPONS INSTAN ELEMEN SAAT DITEKAN DI HP (CLICK FEEDBACK REALTIME) */
 .menu-item:active {
     transform: scale(0.97) translateY(0);
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(230, 182, 66, 0.6);
 }
 
-/* --- THE NEW 3D SHOWCASE CARDS --- */
+/* --- SHOWCASE CARDS --- */
 .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -242,12 +253,9 @@ body::before {
     padding: 45px 30px 40px;
     border-radius: 24px;
     text-align: center;
-    
-    /* KEBENINGAN KOTAK CARD UTAMA DIOPTIMALKAN AGAR TEMBUS PANDANG */
     background: linear-gradient(180deg, rgba(9, 17, 34, 0.35) 0%, rgba(3, 7, 16, 0.55) 100%);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    
     border: 1px solid rgba(255, 255, 255, 0.03);
     position: relative;
     overflow: hidden;
@@ -282,7 +290,7 @@ body::before {
 .card p {
     font-size: 14px;
     line-height: 1.6;
-    color: #dbe4f0; /* Kontras warna teks dinaikkan agar teks putih tetap tajam terbaca jelas */
+    color: #dbe4f0;
     margin-bottom: 35px;
     min-height: 68px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.9);
@@ -308,32 +316,27 @@ body::before {
     transform: translateY(-10px);
 }
 
-/* RESPONS INSTAN TOMBOL UTAMA KETIKA DITAP / DIKLIK OLEH JARI DI HP */
 .card-btn:active {
     transform: scale(0.96);
     filter: brightness(0.85) !important;
 }
 
-/* BRAND COLOR CHROMATICS ROW */
-/* BLUE CONCEPT */
+/* CHROMATICS COLOR STYLES */
 .blue { border-color: rgba(0, 162, 255, 0.1); }
 .blue i, .blue h2 { color: #33b6ff; filter: drop-shadow(0 0 10px rgba(0, 162, 255, 0.3)); }
 .blue .card-btn { background: linear-gradient(135deg, #0052d4, #4364f7); box-shadow: 0 6px 20px rgba(67, 100, 247, 0.35); }
 .blue:hover { border-color: rgba(0, 162, 255, 0.3); box-shadow: 0 25px 50px rgba(0, 162, 255, 0.15); }
 
-/* PURPLE CONCEPT */
 .purple { border-color: rgba(176, 0, 255, 0.1); }
 .purple i, .purple h2 { color: #d26dff; filter: drop-shadow(0 0 10px rgba(176, 0, 255, 0.3)); }
 .purple .card-btn { background: linear-gradient(135deg, #5110bc, #892cdc); box-shadow: 0 6px 20px rgba(137, 44, 220, 0.35); }
 .purple:hover { border-color: rgba(176, 0, 255, 0.3); box-shadow: 0 25px 50px rgba(176, 0, 255, 0.15); }
 
-/* GOLD CONCEPT */
 .gold { border-color: rgba(255, 179, 0, 0.1); }
 .gold i, .gold h2 { color: #ffd43b; filter: drop-shadow(0 0 10px rgba(255, 179, 0, 0.3)); }
 .gold .card-btn { background: linear-gradient(135deg, #b8860b, #e6b642); color: #160e00; box-shadow: 0 6px 20px rgba(230, 182, 66, 0.35); }
 .gold:hover { border-color: rgba(255, 179, 0, 0.3); box-shadow: 0 25px 50px rgba(255, 179, 0, 0.15); }
 
-/* GREEN CONCEPT */
 .green { border-color: rgba(0, 255, 85, 0.1); }
 .green i, .green h2 { color: #4dff8d; filter: drop-shadow(0 0 10px rgba(0, 255, 85, 0.3)); }
 .green .card-btn { background: linear-gradient(135deg, #007029, #00b344); box-shadow: 0 6px 20px rgba(0, 179, 68, 0.35); }
@@ -396,7 +399,6 @@ body::before {
     100% { background-position: 200% center; }
 }
 
-/* Keyframe animasi untuk kelancaran teks berjalan marquee */
 @keyframes marquee-speed {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(-100%, 0, 0); }
@@ -404,65 +406,27 @@ body::before {
 
 /* --- ADAPTIVE RESPONSIVE FRAMEWORK --- */
 @media(max-width: 1200px) {
-    .menu, .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .features {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .avanza-title {
-        font-size: 74px;
-    }
+    .menu, .cards { grid-template-columns: repeat(2, 1fr); }
+    .features { grid-template-columns: repeat(3, 1fr); }
+    .avanza-title { font-size: 74px; }
 }
 
 @media(max-width: 768px) {
-    .container {
-        padding: 25px 12px;
-    }
-    .avanza-title {
-        font-size: 50px;
-        letter-spacing: 3px;
-    }
-    .tagline {
-        font-size: 11px;
-        letter-spacing: 3px;
-    }
-    .running-text-container {
-        padding: 10px 16px;
-        margin-bottom: 25px;
-    }
-    .marquee-content {
-        font-size: 12px;
-    }
-    .menu {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-    .cards {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .features {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    .feature:last-child {
-        grid-column: span 2;
-    }
-    .card p {
-        min-height: auto;
-        margin-bottom: 25px;
-    }
-    body::before {
-        background-size: 260px auto; /* Skala ubin gambar di layar HP agar proporsional */
-    }
+    .container { padding: 25px 12px; }
+    .avanza-title { font-size: 50px; letter-spacing: 3px; }
+    .tagline { font-size: 11px; letter-spacing: 3px; }
+    .running-text-container { padding: 10px 16px; margin-bottom: 25px; }
+    .marquee-content { font-size: 12px; }
+    .menu { grid-template-columns: 1fr; gap: 12px; }
+    .cards { grid-template-columns: 1fr; gap: 20px; }
+    .features { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .feature:last-child { grid-column: span 2; }
+    .card p { min-height: auto; margin-bottom: 25px; }
+    body::before { background-size: 260px auto; }
 }
 
 @media(max-width: 480px) {
-    .avanza-title {
-        font-size: 40px;
-        letter-spacing: 2px;
-    }
+    .avanza-title { font-size: 40px; letter-spacing: 2px; }
 }
 </style>
 </head>
@@ -470,6 +434,7 @@ body::before {
 
 <div class="container">
 
+    <!-- HEADER / LOGO SECTION -->
     <header class="logo">
         <div class="crown-wrapper">
             <i class="fa-solid fa-crown"></i>
@@ -478,12 +443,14 @@ body::before {
         <p class="tagline">Play Smart, Win Big, Every Time</p>
     </header>
 
+    <!-- PREMIUM MARQUEE RUNNING TEXT SECTION -->
     <div class="running-text-container">
         <div class="marquee-content">
             AVANZATOTO SITUS GAME ONLINE RESMI TERBAIK DAN TERPERCAYA YA <span>BOSKU</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </div>
 
+    <!-- QUICK ACCESS MENU HORIZONTAL BAR -->
     <nav class="menu">
         <a href="https://vxn5gdwdjc.avanza189.com/login" class="menu-item">
             <div class="menu-info">
@@ -526,7 +493,9 @@ body::before {
         </a>
     </nav>
 
+    <!-- CARDS MAIN LINKS CONTAINER -->
     <main class="cards">
+        <!-- CARD LOGIN -->
         <div class="card blue">
             <div class="card-icon-wrapper">
                 <i class="fa-solid fa-shield-halved"></i>
@@ -536,6 +505,7 @@ body::before {
             <a href="https://vxn5gdwdjc.avanza189.com/login" class="card-btn">Enter Now</a>
         </div>
 
+        <!-- CARD REGISTER -->
         <div class="card purple">
             <div class="card-icon-wrapper">
                 <i class="fa-solid fa-clipboard-list"></i>
@@ -545,6 +515,7 @@ body::before {
             <a href="https://vxn5gdwdjc.avanza189.com/register" class="card-btn">Register Today</a>
         </div>
 
+        <!-- CARD PROMOTION -->
         <div class="card gold">
             <div class="card-icon-wrapper">
                 <i class="fa-solid fa-gift"></i>
@@ -554,6 +525,7 @@ body::before {
             <a href="https://vxn5gdwdjc.avanza189.com/promotion" class="card-btn">Claim Bonus</a>
         </div>
 
+        <!-- CARD CONTACT SUPPORT -->
         <div class="card green">
             <div class="card-icon-wrapper">
                 <i class="fa-solid fa-headset"></i>
@@ -564,6 +536,7 @@ body::before {
         </div>
     </main>
 
+    <!-- FOOTER FEATURES VALUE SECTION -->
     <footer class="features">
         <div class="feature">
             <i class="fa-solid fa-shield"></i>
