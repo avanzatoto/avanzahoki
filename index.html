@@ -167,8 +167,8 @@ body::before {
 /* --- LUXURY NAV BAR --- */
 .menu {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(6, 1fr); /* Disesuaikan untuk 6 menu */
+    gap: 15px;
     margin-bottom: 40px;
 }
 
@@ -178,7 +178,7 @@ body::before {
     justify-content: space-between;
     text-decoration: none;
     color: #ffffff;
-    padding: 20px 26px;
+    padding: 18px 20px;
     background: rgba(255, 255, 255, 0.01);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
@@ -191,7 +191,7 @@ body::before {
 .menu-info {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
 .menu-info i {
@@ -204,16 +204,16 @@ body::before {
 
 .menu-title {
     font-weight: 800;
-    font-size: 15px;
+    font-size: 13px; /* Sedikit dikecilkan agar seimbang di layar laptop sedang */
     letter-spacing: 1px;
 }
 
 .explore-btn {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding: 5px 14px;
+    padding: 4px 10px;
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 30px;
     background: rgba(0, 0, 0, 0.4);
@@ -243,7 +243,7 @@ body::before {
 /* --- SHOWCASE CARDS --- */
 .cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Disesuaikan ke 3 kolom agar layout 6 kartu terlihat seimbang (3 atas, 3 bawah) */
     gap: 28px;
 }
 
@@ -339,6 +339,17 @@ body::before {
 .green i, .green h2 { color: #4dff8d; filter: drop-shadow(0 0 10px rgba(0, 255, 85, 0.3)); }
 .green .card-btn { background: linear-gradient(135deg, #007029, #00b344); box-shadow: 0 6px 20px rgba(0, 179, 68, 0.35); }
 .green:hover { border-color: rgba(0, 255, 85, 0.3); box-shadow: 0 25px 50px rgba(0, 255, 85, 0.15); }
+
+/* GAYA WARNA BARU UNTUK 2 MENU TAMBAHAN */
+.red { border-color: rgba(255, 46, 46, 0.1); }
+.red i, .red h2 { color: #ff5c5c; filter: drop-shadow(0 0 10px rgba(255, 46, 46, 0.3)); }
+.red .card-btn { background: linear-gradient(135deg, #990000, #ff2e2e); box-shadow: 0 6px 20px rgba(255, 46, 46, 0.35); }
+.red:hover { border-color: rgba(255, 46, 46, 0.3); box-shadow: 0 25px 50px rgba(255, 46, 46, 0.15); }
+
+.cyan { border-color: rgba(0, 242, 254, 0.1); }
+.cyan i, .cyan h2 { color: #4facfe; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3)); }
+.cyan .card-btn { background: linear-gradient(135deg, #005bea, #00c6ff); box-shadow: 0 6px 20px rgba(0, 198, 255, 0.35); }
+.cyan:hover { border-color: rgba(0, 242, 254, 0.3); box-shadow: 0 25px 50px rgba(0, 242, 254, 0.15); }
 
 /* --- TRUST MATRIX FOOTER BAR --- */
 .features {
@@ -437,7 +448,8 @@ body::before {
 
 /* --- ADAPTIVE RESPONSIVE FRAMEWORK --- */
 @media(max-width: 1200px) {
-    .menu, .cards { grid-template-columns: repeat(2, 1fr); }
+    .menu { grid-template-columns: repeat(3, 1fr); } /* Melipat rapi menjadi 3x2 di layar tablet besar */
+    .cards { grid-template-columns: repeat(2, 1fr); } /* Melipat rapi menjadi 2x3 */
     .features { grid-template-columns: repeat(3, 1fr); }
     .avanza-title { font-size: 74px; }
 }
@@ -448,8 +460,8 @@ body::before {
     .tagline { font-size: 11px; letter-spacing: 3px; }
     .running-text-container { padding: 10px 16px; margin-bottom: 25px; }
     .marquee-content { font-size: 12px; }
-    .menu { grid-template-columns: 1fr; gap: 12px; }
-    .cards { grid-template-columns: 1fr; gap: 20px; }
+    .menu { grid-template-columns: repeat(2, 1fr); gap: 12px; } /* Melipat rapi menjadi 2x3 di layar HP */
+    .cards { grid-template-columns: 1fr; gap: 20px; } /* 1 kartu per baris di layar HP */
     .features { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .feature:last-child { grid-column: span 2; }
     .card p { min-height: auto; margin-bottom: 25px; }
@@ -458,6 +470,7 @@ body::before {
 
 @media(max-width: 480px) {
     .avanza-title { font-size: 40px; letter-spacing: 2px; }
+    .menu { grid-template-columns: 1fr; gap: 10px; } /* Menjadi 1 kolom penuh di layar HP sangat kecil */
 }
 </style>
 </head>
@@ -475,7 +488,7 @@ body::before {
 
     <div class="running-text-container">
         <div class="marquee-content">
-            AVANZATOTO SITUS GAME ONLINE RESMI TERBAIK DAN TERPERCAYA—BERANI BAYAR LUNAS SEMUA KEMENANGANMU! <span>GABUNG SEKARANG DAN JEMPUT HOKI BESARMU MALAM INI</span>
+            AVANZATOTO SITUS GAME ONLINE RESMI TERBAIK DAN TERPERCAYA—BERANI BAYAR LUNAS SEMUA KEMENANGANMU! <span>GABUNG SEKARANG DAN JEMPUT HOKI BESARMU HARI INI</span>
         </div>
     </div>
 
@@ -519,6 +532,28 @@ body::before {
             </div>
             <span class="explore-btn">Explore</span>
         </a>
+
+        <!-- MENU BARU 1 (NAVIGASI) -->
+        <a href="https://lnqblejkcd.avanza189.com/forgot/password" class="menu-item">
+            <div class="menu-info">
+                <i class="fa-solid fa-key"></i>
+                <div class="menu-text">
+                    <span class="menu-title">LUPA PASSWORD</span>
+                </div>
+            </div>
+            <span class="explore-btn">Explore</span>
+        </a>
+
+        <!-- MENU BARU 2 (NAVIGASI) -->
+        <a href="https://hokishj.com/avanzatoto.apk" class="menu-item">
+            <div class="menu-info">
+                <i class="fa-solid fa-download"></i>
+                <div class="menu-text">
+                    <span class="menu-title">DOWNLOAD APP</span>
+                </div>
+            </div>
+            <span class="explore-btn">Explore</span>
+        </a>
     </nav>
 
     <main class="cards">
@@ -556,6 +591,26 @@ body::before {
             <h2>HUBUNGI KAMI</h2>
             <p>Tim profesional VIP support kami siap melayani Anda selama 24 jam nonstop.</p>
             <a href="https://vxn5gdwdjc.avanza189.com/support" class="card-btn">Connect</a>
+        </div>
+
+        <!-- MENU BARU 1 (KARTU UTAMA) -->
+        <div class="card red">
+            <div class="card-icon-wrapper">
+                <i class="fa-solid fa-key"></i>
+            </div>
+            <h2>LUPA PASSWORD</h2>
+            <p>Pulihkan akses akun Anda dengan cepat jika mengalami kendala login atau lupa sandi.</p>
+            <a href="https://lnqblejkcd.avanza189.com/forgot/password" class="card-btn">Reset Password</a>
+        </div>
+
+        <!-- MENU BARU 2 (KARTU UTAMA) -->
+        <div class="card cyan">
+            <div class="card-icon-wrapper">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <h2>DOWNLOAD APP</h2>
+            <p>Unduh aplikasi resmi versi terbaru untuk pengalaman bermain lebih cepat, mulus, dan praktis.</p>
+            <a href="https://hokishj.com/avanzatoto.apk" class="card-btn">Get Application</a>
         </div>
     </main>
 
